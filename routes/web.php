@@ -10,6 +10,9 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+Route::get('like/{id}',[
+'uses'=>'PostController@getLikePost',
+'as'=>'blog.post.like']);
 
 Route::get('/', [
     'uses' => 'PostController@getIndex',
@@ -49,5 +52,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('edit', [
         'uses' => 'PostController@postAdminUpdate',
         'as' => 'admin.update'
+    ]);
+    Route::get('delete/{id}',[
+        'uses'=>'PostController@getAdminDelete',
+        'as'=>'admin.delete'
     ]);
 });
